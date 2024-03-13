@@ -4,13 +4,15 @@ float ax = 0;
 float ay = 0;
 float az = 0;
 
-float dd = 1;
+float dd = 3;
 
 float dx = 400;
 float dy = 400;
 
-float zoom = 5;
+float at = 0.0001;
+float dt = 0.01;
 
+float zoom = 5;
 
 ParticleLine p;
 
@@ -35,9 +37,8 @@ void draw() {
   rotateX(ax);
   rotateY(ay);
   rotateZ(az);
-  // scale(10);
   
-  p.update(0.01);
+  p.update(dt);
   p.display3(zoom);
   
   
@@ -92,6 +93,14 @@ void draw() {
           
         case '-':
           zoom -= zoom*0.01;
+          break;
+          
+        case 'o':
+          dt -= at;
+          break;
+          
+        case 'p':
+          dt += at;
           break;
       }
     }

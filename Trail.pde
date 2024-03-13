@@ -33,6 +33,10 @@ public class Trail<T> implements Iterable {
     }
   }
   
+  public int getCapacity() {
+    return capacity;
+  }
+  
   @Override
   public TrailIterator iterator() {
     return new TrailIterator();
